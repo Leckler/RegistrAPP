@@ -1,0 +1,20 @@
+Logros 
+
+-Se logro realizar la trasferencia del dato nombre desde login hacia la pagina home y redirecionar para bienvenida
+-Se logro disminuir la cantidad de codigo para el menu, realizando un componente menu 
+-Se logro diseñar cada una de las paginas, la lista es estatica ya que aun no se cuenta con la Base de datos
+-Se logro hacer que el modulo reestablecer redirigiera al login al recuperar clave
+-Se lograron crear los mockups
+
+Datos
+-El modulo animacion y pruebas solo fueron utilizados para implementar animaciones de angular
+
+
+Faltas
+
+-El componente menu se muestra correctamente en otros modulos pero no he encontrado darle solucion
+al enrutamiento, ya que antes funcionaba de forma eficiente pero movi algo que no me arroja error pero
+no realizar la redireccion
+
+-La animacion de angular no se pudo realizar con exito, se intento hacer un spinner que apareciera
+al cargar paginas, un toggle para modo oscuro cambiando el background image de fondo
