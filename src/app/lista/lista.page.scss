@@ -15,3 +15,8 @@ ion-toolbar{
 #logo{
     text-align: center;
 }
+
+
+ion-content {
+    --background: url(../../assets/img/fondo_3.jpg) 0 0/100% 100% no-repeat;
+  }
