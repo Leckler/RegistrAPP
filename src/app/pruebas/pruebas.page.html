@@ -5,7 +5,6 @@
 </ion-header>
 
 <ion-content class="background">
-  <app-menu></app-menu>
   <mat-slide-toggle (change)="toggleDarkMode($event)">Activar Modo Oscuro</mat-slide-toggle>
 
   <div [class]="darkModeEnabled ? 'dark-theme' : 'light-theme'">

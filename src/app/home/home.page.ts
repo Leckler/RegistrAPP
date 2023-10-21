@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { Storage } from '@ionic/storage-angular';
+import { AutenticService } from '../autentic.service';
 
 @Component({
   selector: 'app-home',
@@ -8,21 +10,28 @@ import { Router } from '@angular/router';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  user:any;
-  state:any;
+  
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router){
-    this.activatedRoute.queryParams.subscribe(params => {
-      this.state= this.router.getCurrentNavigation()?.extras.state;
-      this.user = this.state.user
-      console.log(this.user);
-    })
+  constructor(private activatedRouter: ActivatedRoute, private router: Router,private storage:Storage,private protect:AutenticService){
+    
   }
 
+  public user = {
+    usuario: "",
+    password: ""
+  }
 
-  public alertButtons = ['OK'];
-
-
+  ngOnInit() {
+    this.activatedRouter.queryParams.subscribe(() => {
+      let state = this.router.getCurrentNavigation()?.extras.state;
+      if (state) {
+        this.user.usuario = state['user'].usuario;
+        this.user.password = state['user'].password;
+        console.log(this.user);
+      }
+    })
+  }
   
+
 
 }

@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras, ActivatedRoute } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { DataService } from '../data.service'
+import { DataService } from '../data.service';
+import { Storage } from '@ionic/storage-angular';
+import { CrudService } from '../crud.service';
+import { AutenticService} from '../autentic.service';
 
 
 
@@ -14,34 +17,38 @@ import { DataService } from '../data.service'
 
 export class LoginPage implements OnInit {
 
-  constructor(private router:Router,private activatedRouter: ActivatedRoute, private dataService: DataService) { }
+  constructor(private router:Router,private activatedRouter: ActivatedRoute, private dataService: DataService,
+    private storage:Storage, private crud: CrudService, private protect: AutenticService) { }
+
   user ={
     usuario:" ",
-    pass:" ",
+    password:" ",
 
   }
-  
-  
 
+  async ngOnInit() {
 
-
-  ingreso() {
-    let navigationExtras: NavigationExtras = {state: {user: this.user}};
-    this.router.navigate(['/home'],navigationExtras);
+    await this.storage.create()
 
   }
 
   
-  
+
+  logear() {
+    this.protect.login(this.user.usuario, this.user.password).then(() => {
+      if (this.protect.logeado) {
+        let navigationExtras: NavigationExtras = {
+          state: { user: this.user }
+        }
+        this.router.navigate(['/home'], navigationExtras);
+      } else {
+        
+      }
+    });
+  }
   ToggleSensor = false; 
 
   
-  Activador(event: Event) {
-    this.ToggleSensor = (event.target as HTMLInputElement).checked;
-  }
-
-
-  ngOnInit(): void {}
 
 
 }

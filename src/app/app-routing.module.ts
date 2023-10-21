@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { LoginPage } from './login/login.page';
+import { GuardianGuard } from './guardian.guard';
 
 
 
@@ -10,20 +11,27 @@ const routes: Routes = [
   
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
+    canActivate: [GuardianGuard]
+    
+
   },
+  
   {
     path: '',
     redirectTo: 'login',
     pathMatch: 'full'
   },
+
+
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+    
   },
   {
     path: 'docente',
-    loadChildren: () => import('./docente/docente.module').then( m => m.DocentePageModule)
+    loadChildren: () => import('./docente/docente.module').then( m => m.DocentePageModule),
   },
   {
     path: 'alumno',
@@ -45,12 +53,27 @@ const routes: Routes = [
     path: 'lista',
     loadChildren: () => import('./lista/lista.module').then( m => m.ListaPageModule)
   },
+  {
+    path: 'error',
+    loadChildren: () => import('./error/error.module').then( m => m.ErrorPageModule)
+  },
+  {
+    path: 'rg',
+    loadChildren: () => import('./rg/rg.module').then( m => m.RGPageModule)
+  },
+  {
+    path: '**',
+    redirectTo: 'error',
+    pathMatch: 'full'
+  },
+  
 ];
 
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules,enableTracing: true, })
   ],
-  exports: [RouterModule]
+  providers:[GuardianGuard],
+  exports: [RouterModule],
 })
 export class AppRoutingModule { }

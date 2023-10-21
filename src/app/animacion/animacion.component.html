@@ -1,2 +1,4 @@
-<div [@animacionCuadro] = "estadoCuadro" class="cuadro"></div>
-<ion-button (click)="Animar"></ion-button>
+<div *ngIf="isLoading" class="loading-container">
+    <div class="loading-spinner"></div>
+</div>
+  

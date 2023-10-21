@@ -1,20 +1,22 @@
 Logros 
 
--Se logro realizar la trasferencia del dato nombre desde login hacia la pagina home y redirecionar para bienvenida
--Se logro disminuir la cantidad de codigo para el menu, realizando un componente menu 
--Se logro diseñar cada una de las paginas, la lista es estatica ya que aun no se cuenta con la Base de datos
--Se logro hacer que el modulo reestablecer redirigiera al login al recuperar clave
--Se lograron crear los mockups
+-Se lograron almacenar los usuarios y claves en una tupla, llamada users
+-Se logro ingresar con las credenciales guardadas en el storage y evitar el ingreso de alguien ajeno con guard
+-Se logro solucionar el problema de menu y ahora se puede presionar, por los que puede ver todas las paginas
+sin necesidad de ingresar la direccion en el buscador, pero algo ocurrio y ya
+no muestra el nombre de usuario en el home.
 
 Datos
--El modulo animacion y pruebas solo fueron utilizados para implementar animaciones de angular
+
+-A veces el ingreso se ralentiza cuando uno ingresa un nuevo usuario a la tupla, pero es funcional
+-Desde que hice los arreglos de menu en app.component.html y app.component.ts 
+Al iniciar el programa y redirigirse al login este aparece en blanco, pero se soluciona "reiniciando la pagina"
+-Se eliminaron los datos estaticos de la lista alumnos y se intento mostrar todos los usuarios del storage sin exito
+
 
 
 Faltas
 
--El componente menu se muestra correctamente en otros modulos pero no he encontrado darle solucion
-al enrutamiento, ya que antes funcionaba de forma eficiente pero movi algo que no me arroja error pero
-no realizar la redireccion
+-No hay grandes faltas, se logro la persistencia y con el guard evitar el ingreso al home sin estar logeado
 
--La animacion de angular no se pudo realizar con exito, se intento hacer un spinner que apareciera
-al cargar paginas, un toggle para modo oscuro cambiando el background image de fondo
+

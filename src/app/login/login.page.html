@@ -25,16 +25,16 @@
                   <ion-input [(ngModel)]="user.usuario"  label="Usuario:" placeholder="Ingrese correo"></ion-input>
                 </ion-item>
                 <ion-item class="item">
-                  <ion-input [(ngModel)]="user.pass" label="Clave:" type="password" placeholder="Ingrese clave"></ion-input>
+                  <ion-input [(ngModel)]="user.password" label="Clave:" type="password" placeholder="Ingrese clave"></ion-input>
                 </ion-item>
               </ion-list>
               <div id="envio">
-                <ion-button (click)="ingreso()" fill="solid">Ingresar</ion-button>
-                <ion-button [routerLink]="['/registro']" fill="solid">Registrarse</ion-button>
+                <ion-button (click)="logear()" fill="solid">Ingresar</ion-button>
+                <ion-button [routerLink]="['/rg']" fill="solid">Registrarse</ion-button>
                 <ion-button [routerLink]="['/reestablecer']" fill="solid">Reestablecer clave</ion-button>
               </div>
             </ion-card-content>
-          </ion-card>
+          </ion-card>         
         </div>
       </ion-col>
     </ion-row>
